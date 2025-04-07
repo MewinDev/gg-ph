@@ -1,0 +1,1 @@
+<img src="{{ asset('images/gg-ph-logo.png') }}" alt="" {{ $attributes }}>
