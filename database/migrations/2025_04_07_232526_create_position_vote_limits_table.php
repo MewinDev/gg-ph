@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('position_vote_limits', function (Blueprint $table) {
             $table->id();
+            $table->string('position');
+            $table->string('level');
+            $table->string('area')->nullable();
+            $table->integer('max_votes');
             $table->timestamps();
         });
     }

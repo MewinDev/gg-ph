@@ -27,13 +27,13 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     // Profile Controller
-    Route::controller(ProfileController::class)->name('profile.')->group(function () {
-        Route::get('/profile', 'edit')->name('edit');
-        Route::patch('/profile', 'update')->name('update');
-        Route::delete('/profile', 'destroy')->name('destroy');
+    Route::prefix('profile')->controller(ProfileController::class)->name('profile.')->group(function () {
+        Route::get('/', 'edit')->name('edit');
+        Route::patch('/', 'update')->name('update');
+        Route::delete('/', 'destroy')->name('destroy');
     });
-    // Cadindates Controllers
-    Route::controller(CandidatesController::class)->group(function () {
+    // Candidates Controllers
+    Route::prefix('candidates')->controller(CandidatesController::class)->group(function () {
         Route::get('/senatorials', 'showSenatorials')->name('senatorials.index');
         Route::get('/locals', 'showLocals')->name('locals.index');
         Route::get('/partylists', 'showPartylists')->name('partylists.index');
