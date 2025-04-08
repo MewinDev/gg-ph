@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CandidatesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +24,21 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Profile Controller
+    Route::controller(ProfileController::class)->name('profile.')->group(function () {
+        Route::get('/profile', 'edit')->name('edit');
+        Route::patch('/profile', 'update')->name('update');
+        Route::delete('/profile', 'destroy')->name('destroy');
+    });
+    // Cadindates Controllers
+    Route::controller(CandidatesController::class)->group(function () {
+        Route::get('/senatorials', 'showSenatorials')->name('senatorials.index');
+        Route::get('/locals', 'showLocals')->name('locals.index');
+        Route::get('/partylists', 'showPartylists')->name('partylists.index');
+    });
 });
+
 
 require __DIR__.'/auth.php';

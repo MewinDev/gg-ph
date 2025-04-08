@@ -4,22 +4,37 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center gap-3">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-12 rounded-lg w-auto" />
+                        <x-application-logo class="block h-10 md:h-12 rounded-lg w-auto" />
                     </a>
+                    <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-3xl uppercase">
+                        Good 
+                        Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg> <span class="ml-2">PH</span>
+                    </h1>  
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex font-bold uppercase">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index')">
+                        {{ __('Senatorial Candidates') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index')">
+                        {{ __('Local Candidates') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index')">
+                        {{ __('Party Lists') }}
                     </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center whitespace-nowrap">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
