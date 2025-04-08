@@ -9,13 +9,6 @@
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @endauth
-                </div>
-            @endif
 
             <section class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex items-center justify-center gap-5">
@@ -34,7 +27,15 @@
                         <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>Vote Selection</x-button>
                         <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>View Candidate</x-button>
                         <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>View Party Lists</x-button>
-                        <x-link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Log In</x-link>
+                        @if (Route::has('login'))
+                            @auth
+                                @if (auth()->user()->role === 'admin')
+                                    <x-link href="{{ url('/dashboard') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Dashboard</x-link>
+                                @endif
+                            @else
+                                <x-link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Log In</x-link>
+                            @endauth
+                        @endif
                     </div>
                 </div>
 

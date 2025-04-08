@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center gap-3">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         <x-application-logo class="block h-10 md:h-12 rounded-lg w-auto" />
                     </a>
                     <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-3xl uppercase">
@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
+                <div class="hidden no-scrollbar space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>

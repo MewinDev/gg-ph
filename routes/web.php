@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCandidatesController;
 use App\Http\Controllers\CandidatesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,29 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::view('/', 'welcome');
 
 Route::middleware('auth')->group(function () {
+    
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+
     // Profile Controller
     Route::prefix('profile')->controller(ProfileController::class)->name('profile.')->group(function () {
         Route::get('/', 'edit')->name('edit');
         Route::patch('/', 'update')->name('update');
         Route::delete('/', 'destroy')->name('destroy');
     });
+
     // Candidates Controllers
     Route::prefix('candidates')->controller(CandidatesController::class)->group(function () {
         Route::get('/senatorials', 'showSenatorials')->name('senatorials.index');
         Route::get('/locals', 'showLocals')->name('locals.index');
         Route::get('/partylists', 'showPartylists')->name('partylists.index');
     });
-});
 
+    // Candidates Controllers
+    Route::prefix('admin')->controller(AdminCandidatesController::class)->name('admin.')->group(function () {
+        Route::get('/dashboard', 'index')->name('index');
+    });
+});
 
 require __DIR__.'/auth.php';
