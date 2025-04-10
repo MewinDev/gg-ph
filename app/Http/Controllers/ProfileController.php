@@ -8,17 +8,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Role;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
-     */
+    */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+       $user = $request->user();
+       $roleId = $user->roles()->pluck('id')->first(); // Assuming a relationship exists between User and Role
+       $roles = Role::pluck('rol_name', 'id'); // Corrected to have 'id' as the key and 'rol_name' as the value
+
+       return view('profile.edit', [
+          'user' => $user,
+          'role_id' => $roleId,
+          'roles' => $roles,
+       ]);
     }
 
     /**
