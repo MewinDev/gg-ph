@@ -5,7 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -48,12 +48,17 @@ class User extends Authenticatable
     ];
     
     /**
-     * Get all of the comments for the User
+     * Get the role for the User
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function roles(): HasMany
+    public function role(): BelongsTo
     {
-        return $this->hasMany(Role::class,);
+        return $this->BelongsTo(Role::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->role && $this->role->rol_name === $role;
     }
 }

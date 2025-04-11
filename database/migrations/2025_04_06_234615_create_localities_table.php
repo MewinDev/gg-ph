@@ -40,6 +40,12 @@ return new class extends Migration
             $table->string('prov_name');
             $table->timestamps();
         });
+        
+        Schema::create('districts', function (Blueprint $table) {
+            $table->id();
+            $table->string('dis_name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -52,5 +58,6 @@ return new class extends Migration
         Schema::dropIfExists('local_positions');
         Schema::dropIfExists('cities');
         Schema::dropIfExists('provinces');
+        Schema::dropIfExists('districts');
     }
 };

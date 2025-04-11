@@ -18,12 +18,11 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
        $user = $request->user();
-       $roleId = $user->roles()->pluck('id')->first(); // Assuming a relationship exists between User and Role
        $roles = Role::pluck('rol_name', 'id'); // Corrected to have 'id' as the key and 'rol_name' as the value
 
        return view('profile.edit', [
           'user' => $user,
-          'role_id' => $roleId,
+          'role_id' => $user->role_id,
           'roles' => $roles,
        ]);
     }

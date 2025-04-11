@@ -14,6 +14,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         Role::factory()->admin()->create();
+        Role::factory()->editor()->create();
         Role::factory()->guest()->create();
     }
 }

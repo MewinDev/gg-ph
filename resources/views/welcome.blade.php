@@ -15,7 +15,7 @@
                     <x-application-logo class="w-32 rounded-xl"/>
                     <h1 class="sm:block hidden font-extrabold text-gray-700 dark:text-white text-6xl uppercase">
                         Good <br>
-                        <span class="flex items-end">Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-12">
+                        <span class="flex items-end">Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-14">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                         </svg> PH
                         </span>
@@ -24,18 +24,16 @@
                 
                 <div class="mt-5">
                     <div class="flex flex-col space-y-3">
-                        <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>Vote Selection</x-button>
-                        <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>View Candidate</x-button>
-                        <x-button size='xl' color='gray' extraClass='uppercase font-semibold'>View Party Lists</x-button>
                         @if (Route::has('login'))
                             @auth
-                                @if (auth()->user()->role === 'admin')
-                                    <x-link href="{{ url('/dashboard') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Dashboard</x-link>
-                                @endif
+                                <x-contents.admin>
+                                    <x-forms.link href="{{ url('/dashboard') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Dashboard</x-forms.link>
+                                </x-contents.admin>
                             @else
-                                <x-link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Log In</x-link>
+                                <x-forms.link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Log In</x-forms.link>
                             @endauth
                         @endif
+                        <x-forms.button size='xl' color='gray' extraClass='uppercase font-semibold'>Vote Selection</x-forms.button>
                     </div>
                 </div>
 

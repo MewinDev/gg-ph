@@ -17,7 +17,7 @@ class RoleFactory extends Factory
     public function definition(): array
     {
         return [
-            'rol_name' => $this->faker->randomElement(['admin', 'guest']),
+            'rol_name' => $this->faker->randomElement(['admin', 'editor', 'guest']),
         ];
     }
 
@@ -32,12 +32,22 @@ class RoleFactory extends Factory
     }
 
     /**
+     * State for the "editor" role.
+     */
+    public function editor(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'rol_name' => 'editor',
+        ]);
+    }
+
+    /**
      * State for the "guest" role.
      */
     public function guest(): static
     {
         return $this->state(fn (array $attributes) => [
-            'rol_name' => 'guest',
+            'rol_name' => 'viewer',
         ]);
     }
 }

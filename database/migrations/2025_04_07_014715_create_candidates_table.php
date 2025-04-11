@@ -37,6 +37,7 @@ return new class extends Migration
             $table->foreignId('region_id')->nullable()->constrained('regions')->onDelete('set null');
             $table->foreignId('city_id')->nullable()->constrained('cities')->onDelete('set null');
             $table->foreignId('province_id')->nullable()->constrained('provinces')->onDelete('set null');
+            $table->foreignId('district_id')->nullable()->constrained('districts')->onDelete('set null');
             $table->timestamps();
         });
 

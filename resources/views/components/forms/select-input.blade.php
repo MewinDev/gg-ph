@@ -4,6 +4,7 @@
   'extraClass' => '',
   'options' => [], // Array of options for the select input
   'value' => '',
+  'label' => 'Here',
 ])
 
 @php
@@ -13,7 +14,7 @@
 @endphp
 
 <select {{ $attributes }} @if($disabled) disabled @endif class="{{ $finalClasses }}">
-  <option value="">Select Role</option>
+  <option value="">Select {{ $label }}</option>
   @foreach ($options as $key => $name)
     <option value="{{ $key }}" @if($value == $key) selected @endif>
       {{ ucfirst($name) }}
