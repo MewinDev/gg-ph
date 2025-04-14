@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bangsamoro_parliamentary_positions', function (Blueprint $table) {
+        Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->string('bangpos_name');
-            $table->timestamps();
-        });
-        
-        Schema::create('local_positions', function (Blueprint $table) {
-            $table->id();
-            $table->string('locpos_name');
+            $table->string('pos_name');
             $table->timestamps();
         });
         
@@ -53,7 +47,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bangsamoro_parliamentary_positions');
         Schema::dropIfExists('regions');
         Schema::dropIfExists('local_positions');
         Schema::dropIfExists('cities');

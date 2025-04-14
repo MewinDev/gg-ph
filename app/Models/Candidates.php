@@ -10,7 +10,7 @@ class LocalCandidates extends Model
     use HasFactory;
 
     protected $fillable = [
-        'loc_picture', 'loc_firstname', 'loc_lastname', 'loc_middlename', 'loc_age', 'loc_sex', 
-        'local_position_id', 'partylist_id','region_id','city_id', 'province_id'
+        'can_ballot_number', 'can_picture', 'can_firstname', 'can_lastname', 'can_middlename', 'can_age', 'can_sex',
+        'position_id', 'partylist_id','region_id','province_id', 'city_id', 'district_id'
     ];
 }

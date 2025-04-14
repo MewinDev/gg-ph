@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LocalPosition extends Model
+class Position extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['locpos_name'];
+    protected $fillable = ['pos_name'];
 }
