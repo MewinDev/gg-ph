@@ -9,13 +9,15 @@ export default {
     './resources/views/**/*.blade.php',
   ],
 
+  darkMode: 'class', // Enable dark mode using the 'class' strategy
+
   theme: {
     extend: {
       fontFamily: {
         sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-        },
+      },
     },
+  },
 
-    plugins: [forms],
+  plugins: [forms],
 };
