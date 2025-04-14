@@ -7,7 +7,7 @@
         <title>GG PH</title>
         @vite('resources/css/app.css', 'resources/js/app.js')
     </head>
-    <body class="antialiased">
+    <body class="antialiased font-abz">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
 
             <section class="max-w-7xl mx-auto p-6 lg:p-8">
@@ -27,13 +27,14 @@
                         @if (Route::has('login'))
                             @auth
                                 <x-contents.admin>
-                                    <x-forms.link href="{{ url('/dashboard') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Dashboard</x-forms.link>
+                                    <x-forms.link href="{{ route('dashboard') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Dashboard</x-forms.link>
                                 </x-contents.admin>
                             @else
                                 <x-forms.link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase font-semibold'>Log In</x-forms.link>
+                                <x-forms.link href="{{ route('dashboard') }}" size='xl' color='gray' extraClass='uppercase font-semibold'>List of Candidates  </x-forms.link>
                             @endauth
                         @endif
-                        <x-forms.button size='xl' color='gray' extraClass='uppercase font-semibold'>Vote Selection</x-forms.button>
+                        <x-forms.button size='xl' color='gray' extraClass='uppercase font-semibold'>Sample Voting Ballots</x-forms.button>
                     </div>
                 </div>
 

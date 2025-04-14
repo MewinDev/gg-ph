@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Contents;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class AdminContent extends Component
+class Admin extends Component
 {
     /**
      * Create a new component instance.
@@ -15,16 +15,15 @@ class AdminContent extends Component
     {
         //
     }
-
+    public function shouldRender(): bool
+    {
+        return auth()->check() && auth()->user()->hasRole('admin');
+    }
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        if (auth()->check() && auth()->user()->hasRole('admin')) {
-            return view('contents.admin');
-        }
-
-        return ''; // Return an empty string if the user is not an admin
+        return view('components.contents.admin');
     }
 }

@@ -26,19 +26,19 @@
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
             </label>
             
-            {{-- @if (Route::has('password.request'))
+            @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
-            @endif --}}
+            @endif
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('register'))
+            {{-- @if (Route::has('register'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
                     {{ __("Don't have an account yet?") }}
                 </a>
-            @endif
+            @endif --}}
 
             <x-forms.button type='submit' extraClass='uppercase ml-3'>
                 {{ __('Log in') }}

@@ -10,6 +10,15 @@ export default {
     ],
 
     theme: {
+        keyframes: {
+          "zoom-in": {
+            "0%": { transform: "scale(1)" },
+            "100%": { transform: "scale(1.12)" },
+          },
+        },
+        animation: {
+          "zoom-in": "zoom-in 0.4s ease-in-out forwards",
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

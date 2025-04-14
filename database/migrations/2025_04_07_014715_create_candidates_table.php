@@ -12,12 +12,14 @@ return new class extends Migration
     {
         Schema::create('senatorial_candidates', function (Blueprint $table) {
             $table->id();
+            $table->string('sen_ballot_number');
             $table->string('sen_picture')->nullable();
             $table->string('sen_firstname');
             $table->string('sen_lastname');
             $table->string('sen_middlename')->nullable();
             $table->string('sen_age');
             $table->string('sen_sex');
+            $table->string('sen_short_description');
             // Use constrained() for foreign key
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('cascade');
             $table->timestamps();
@@ -25,12 +27,14 @@ return new class extends Migration
 
         Schema::create('local_candidates', function (Blueprint $table) {
             $table->id();
+            $table->string('loc_ballot_number');
             $table->string('loc_picture')->nullable();
             $table->string('loc_firstname');
             $table->string('loc_lastname');
             $table->string('loc_middlename')->nullable();
             $table->string('loc_age');
             $table->string('loc_sex');
+            $table->string('loc_short_description');
             // Use constrained() for foreign keys
             $table->foreignId('local_position_id')->constrained('local_positions')->onDelete('cascade');
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('set null');
@@ -43,12 +47,14 @@ return new class extends Migration
 
         Schema::create('bangsamoro_candidates', function (Blueprint $table) {
             $table->id();
+            $table->string('bang_ballot_number');
             $table->string('bang_picture')->nullable();
             $table->string('bang_firstname');
             $table->string('bang_lastname');
             $table->string('bang_middlename')->nullable();
             $table->string('bang_age');
             $table->string('bang_sex');
+            $table->string('bang_short_description');
             // Use constrained() for foreign keys
             $table->foreignId('bangsamoro_parliamentary_position_id')->constrained('bangsamoro_parliamentary_positions')->onDelete('cascade');
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('set null');

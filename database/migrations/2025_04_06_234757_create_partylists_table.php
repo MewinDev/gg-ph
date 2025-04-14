@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('partylists', function (Blueprint $table) {
             $table->id();
+            $table->string('par_ballot_number');
             $table->string('par_name');
+            $table->string('par_short_description');
             $table->timestamps();
         });
     }

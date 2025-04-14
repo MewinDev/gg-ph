@@ -11,13 +11,17 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased font-abz">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="py-5">
+                    <div class="max-w-7xl mx-auto">
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
         </div>
     </body>
