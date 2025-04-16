@@ -21,9 +21,9 @@
 
         <!-- Remember Me -->
         <div class="flex items-end justify-between mt-4">
-            <label for="remember_me" class="inline-flex items-center">
+            <label for="remember_me" class="group inline-flex">
                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-blue-600 shadow-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <span class="group-hover:text-white ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
             </label>
             
             @if (Route::has('password.request'))

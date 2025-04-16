@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminCandidatesController;
-use App\Http\Controllers\CandidatesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -28,14 +28,6 @@ Route::prefix('profile')->controller(ProfileController::class)->name('profile.')
     Route::delete('/', 'destroy')->name('destroy');
 });
 
-// Candidates Controllers
-Route::prefix('candidates')->controller(CandidatesController::class)->group(function () {
-    Route::get('/senatorials', 'showSenatorials')->name('senatorials.index');
-    Route::get('/locals', 'showLocals')->name('locals.index');
-    Route::get('/partylists', 'showPartylists')->name('partylists.index');
-});
-
-
 Route::middleware('auth')->group(function () {
     // Candidates Controllers
     Route::prefix('admin')->controller(AdminCandidatesController::class)->name('admin.')->group(function () {
@@ -44,3 +36,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/candidates.php';

@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('candidates', function (Blueprint $table) {
-            $table->string('can_short_description')->nullable();
+            $table->string('can_short_description');
         });
     }
 };
