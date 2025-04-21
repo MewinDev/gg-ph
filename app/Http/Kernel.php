@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\Language::class,
         ],
 
         'api' => [
@@ -67,8 +68,8 @@ class Kernel extends HttpKernel
     ];
 
     protected $routeMiddleware = [
-        // ...
-        'is_admin' => \App\Http\Middleware\IsAdmin::class,
+        // other middleware
+        'isAdmin' => \App\Http\Middleware\IsAdmin::class,
     ];
     
 }

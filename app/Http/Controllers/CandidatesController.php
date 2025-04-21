@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 
 class CandidatesController extends Controller
 {
+
     public function showSenatorials() {
 
         $candidates = Candidate::where('position_id', '1')->get();

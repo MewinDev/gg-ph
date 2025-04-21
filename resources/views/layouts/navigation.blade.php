@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-8xl mx-auto">
         <div class="flex justify-between h-16">
             <div class="flex items-center">
             <!-- Logo -->
@@ -21,13 +21,13 @@
                 <x-navs.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
                 </x-navs.nav-link>
-                <x-navs.nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index')">
+                <x-navs.nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index') || Str::contains(request()->url(), 'senatorials')">
                 {{ __('Senatorial Candidates') }}
                 </x-navs.nav-link>
-                <x-navs.nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index')">
+                <x-navs.nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index') || Str::contains(request()->url(), 'locals')">
                 {{ __('Local Candidates') }}
                 </x-navs.nav-link>
-                <x-navs.nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index')">
+                <x-navs.nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index') || Str::contains(request()->url(), 'partylists')">
                 {{ __('Party Lists') }}
                 </x-navs.nav-link>
             </div>

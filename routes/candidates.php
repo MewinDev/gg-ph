@@ -13,6 +13,6 @@ Route::prefix('candidates')->group(function () {
   });
 
   Route::controller(SenatorialCandidatesController::class)->group(function () {
-      Route::get('/senatorials/{id}', 'show')->name('senatorials.show');
+      Route::get('/senatorials-information/{id}', 'show')->name('senatorials.show');
   });
 });

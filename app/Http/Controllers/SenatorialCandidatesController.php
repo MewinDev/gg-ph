@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class SenatorialCandidatesController extends Controller
 {
@@ -35,9 +37,12 @@ class SenatorialCandidatesController extends Controller
      */
     public function show(string $id)
     {
-        $candidatess = Candidate::where(['position_id', '1'])->get();
+        $candidate = Candidate::with('position')
+            ->where('position_id', 1)
+            ->findOrFail($id);
+        
 
-        return view('candidates.information');
+        return view('candidates.information', ['candidate' => $candidate]);
     }
 
     /**

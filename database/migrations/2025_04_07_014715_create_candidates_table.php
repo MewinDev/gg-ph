@@ -17,9 +17,7 @@ return new class extends Migration
             $table->string('can_firstname');
             $table->string('can_lastname');
             $table->string('can_middlename')->nullable();
-            $table->string('can_age');
-            $table->string('can_sex');
-            $table->string('can_short_description');
+            $table->string('can_nickname')->nullable();
             // Use constrained() for foreign keys
             $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('set null');

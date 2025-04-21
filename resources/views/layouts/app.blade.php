@@ -18,7 +18,7 @@
             <!-- Page Content -->
             <main>
                 <div class="py-8">
-                    <div class="max-w-7xl mx-auto">
+                    <div class="max-w-8xl mx-auto">
                         {{ $slot }}
                     </div>
                 </div>
