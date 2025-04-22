@@ -3,7 +3,7 @@
 ])
 
 <nav class="flex" aria-label="Breadcrumb">
-  <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse sm:mt-0 mt-3">
+  <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
     @foreach ($breadcrumb as $index => $item)
       @if ($index === 0)
         <li class="inline-flex items-center">

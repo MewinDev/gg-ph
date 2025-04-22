@@ -1,36 +1,36 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-8xl mx-auto">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-16 mx-5 md:mx-10 lg:mx-0">
             <div class="flex items-center">
-            <!-- Logo -->
-            <div class="shrink-0 flex items-center gap-3">
-                <a href="/">
-                <x-application-logo class="block h-10 md:h-12 rounded-lg w-auto" />
-                </a>
-                <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-3xl uppercase">
-                Good 
-                Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-7">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg> <span class="ml-2">PH</span>
-                </h1>  
-            </div>
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center gap-3">
+                    <a href="/">
+                    <x-application-logo class="block h-10 md:h-12 rounded-lg w-auto" />
+                    </a>
+                    <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-3xl uppercase">
+                    Good 
+                    Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg> <span class="ml-2">PH</span>
+                    </h1>  
+                </div>
 
-            <!-- Navigation Links -->
-            <div class="hidden no-scrollbar space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
-                <x-navs.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-                </x-navs.nav-link>
-                <x-navs.nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index') || Str::contains(request()->url(), 'senatorials')">
-                {{ __('Senatorial Candidates') }}
-                </x-navs.nav-link>
-                <x-navs.nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index') || Str::contains(request()->url(), 'locals')">
-                {{ __('Local Candidates') }}
-                </x-navs.nav-link>
-                <x-navs.nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index') || Str::contains(request()->url(), 'partylists')">
-                {{ __('Party Lists') }}
-                </x-navs.nav-link>
-            </div>
+                <!-- Navigation Links -->
+                <div class="hidden no-scrollbar space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
+                    <x-navs.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                    </x-navs.nav-link>
+                    <x-navs.nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index') || Str::contains(request()->url(), 'senatorials')">
+                    {{ __('Senatorial Candidates') }}
+                    </x-navs.nav-link>
+                    <x-navs.nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index') || Str::contains(request()->url(), 'locals')">
+                    {{ __('Local Candidates') }}
+                    </x-navs.nav-link>
+                    <x-navs.nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index') || Str::contains(request()->url(), 'partylists')">
+                    {{ __('Party Lists') }}
+                    </x-navs.nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

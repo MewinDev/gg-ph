@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id')->constrained('roles')->before('email')->default(3);
+            $table->foreignId('role_id')->default(3)->constrained('roles')->onDelete('cascade'); // Optional: Define the behavior on delete
         });
     }
 
@@ -22,7 +22,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_id');
+            $table->dropForeign(['role_id']); // Drop the foreign key constraint first
+            $table->dropColumn('role_id'); // Then drop the column
         });
     }
 };
