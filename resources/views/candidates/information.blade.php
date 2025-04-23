@@ -28,4 +28,41 @@
             </main>
       </div>
   </div>
+  
+  @push('scripts')
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const carousel = document.querySelector('[data-carousel="slide"]');
+          if (carousel) {
+              const items = carousel.querySelectorAll('[data-carousel-item]');
+              const prevButton = carousel.querySelector('[data-carousel-prev]');
+              const nextButton = carousel.querySelector('[data-carousel-next]');
+              let currentIndex = 0;
+
+              function updateCarousel(index) {
+                  items.forEach((item, i) => {
+                      item.classList.toggle('hidden', i !== index);
+                      item.classList.toggle('block', i === index);
+                  });
+              }
+
+              if (prevButton) {
+                  prevButton.addEventListener('click', () => {
+                      currentIndex = (currentIndex - 1 + items.length) % items.length;
+                      updateCarousel(currentIndex);
+                  });
+              }
+
+              if (nextButton) {
+                  nextButton.addEventListener('click', () => {
+                      currentIndex = (currentIndex + 1) % items.length;
+                      updateCarousel(currentIndex);
+                  });
+              }
+
+              updateCarousel(currentIndex); // Initialize display
+          }
+      });
+  </script>
+  @endpush
 </x-app-layout>

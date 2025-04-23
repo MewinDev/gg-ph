@@ -5,8 +5,27 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('images/gg-ph-logo.png') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>GG PH</title>
+        
+        {{-- SEO Meta Tags --}}
+        <title>@yield('title', 'GoodGov PH')</title>
+        <meta name="description" content="@yield('meta_description', 'Learn more about GoodGov PH, a platform for transparent and participatory governance in the Philippines.')">
+        <meta name="keywords" content="@yield('meta_keywords', 'good governance, transparency, public service, Philippines government, GG PH')">
+        
+        {{-- Canonical URL --}}
+        <link rel="canonical" href="{{ url()->current() }}"/>
+        
+        {{-- Open Graph Meta for Social Sharing --}}
+        <meta property="og:title" content="About GoodGov PH">
+        <meta property="og:description" content="Meet the minds behind GoodGov PH and our mission to empower citizens through digital governance tools.">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="{{ asset('images/gg-ph-logo.png') }}">
+        
+        {{-- Twitter Cards --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="About Us - GoodGov PH">
+        <meta name="twitter:description" content="Our mission is to promote good governance and civic engagement in the Philippines.">
+        <meta name="twitter:image" content="{{ asset('images/gg-ph-logo.png') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -8,7 +8,7 @@
                     <a href="/">
                     <x-application-logo class="block h-10 md:h-12 rounded-lg w-auto" />
                     </a>
-                    <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-3xl uppercase">
+                    <h1 class="sm:hidden flex font-extrabold text-gray-700 dark:text-white text-2xl uppercase">
                     Good 
                     Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="text-blue-500 w-7">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
