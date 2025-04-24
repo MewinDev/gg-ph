@@ -1,7 +1,7 @@
 <section id="team">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center mt-5">
         <header class="mx-auto mb-8 max-w-screen-md lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-blue-500 uppercase">Our team</h2>
+                <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-blue-500 uppercase">team Giting ng Pasig</h2>
                 <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
         </header> 
         <div class="grid gap-8 lg:gap-16 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

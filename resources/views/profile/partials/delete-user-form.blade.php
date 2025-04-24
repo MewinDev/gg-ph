@@ -9,10 +9,7 @@
         </p>
     </header>
 
-    <x-forms.button color='red'
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-forms.button>
+    <x-forms.button color='red' x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" >{{ __('Delete Account') }} </x-forms.button>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">

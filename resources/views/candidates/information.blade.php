@@ -30,39 +30,54 @@
   </div>
   
   @push('scripts')
-  <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          const carousel = document.querySelector('[data-carousel="slide"]');
-          if (carousel) {
-              const items = carousel.querySelectorAll('[data-carousel-item]');
-              const prevButton = carousel.querySelector('[data-carousel-prev]');
-              const nextButton = carousel.querySelector('[data-carousel-next]');
-              let currentIndex = 0;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.querySelector('[data-carousel="slide"]');
+        if (carousel) {
+            const items = carousel.querySelectorAll('[data-carousel-item]');
+            const prevButton = carousel.querySelector('[data-carousel-prev]');
+            const nextButton = carousel.querySelector('[data-carousel-next]');
+            let currentIndex = 0;
+            const intervalTime = 3000; // 1.5 seconds
+            const transitionDuration = 500; // 0.5 seconds
 
-              function updateCarousel(index) {
-                  items.forEach((item, i) => {
-                      item.classList.toggle('hidden', i !== index);
-                      item.classList.toggle('block', i === index);
-                  });
-              }
+            function updateCarousel(index) {
+                items.forEach((item, i) => {
+                    if (i === index) {
+                    item.classList.remove('hidden');
+                    item.classList.add('block', 'transition-opacity', 'duration-' + transitionDuration);
+                    item.style.opacity = 1;
+                    } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('block');
+                    item.style.opacity = 0;
+                    }
+                });
+            }
 
-              if (prevButton) {
-                  prevButton.addEventListener('click', () => {
-                      currentIndex = (currentIndex - 1 + items.length) % items.length;
-                      updateCarousel(currentIndex);
-                  });
-              }
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + items.length) % items.length;
+                    updateCarousel(currentIndex);
+                });
+            }
 
-              if (nextButton) {
-                  nextButton.addEventListener('click', () => {
-                      currentIndex = (currentIndex + 1) % items.length;
-                      updateCarousel(currentIndex);
-                  });
-              }
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    updateCarousel(currentIndex);
+                });
+            }
 
-              updateCarousel(currentIndex); // Initialize display
-          }
-      });
-  </script>
+            function autoNext() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel(currentIndex);
+            }
+
+            updateCarousel(currentIndex); // Initialize display
+            setInterval(autoNext, intervalTime); // Automatically move to the next slide
+        }
+    });
+</script>
   @endpush
 </x-app-layout>
