@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Candidate;
+use App\Models\City;
 use App\Models\District;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,10 +25,21 @@ class Barangay extends Model
     }
 
     /**
+     * Get the city that owns the Barangay
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
      * Get the district that owns the Barangay.
      */
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
+    
 }

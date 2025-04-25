@@ -8,6 +8,7 @@ use App\Models\Position;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Znck\Eloquent\Relations\BelongsToThrough;
 
 class Candidate extends Model
 {
@@ -19,7 +20,7 @@ class Candidate extends Model
     ];
 
     /**
-     * Get the position that owns the Candidate
+     * Get the position that owns the Candidate.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -27,9 +28,9 @@ class Candidate extends Model
     {
         return $this->belongsTo(Position::class);
     }
-    
+
     /**
-     * Get the user that owns the Candidate
+     * Get the party list that owns the Candidate.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -39,13 +40,42 @@ class Candidate extends Model
     }
 
     /**
-     * Get the barangay that owns the Candidate
+     * Get the barangay that owns the Candidate.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function barangay(): BelongsTo
+    public function barangay(): BelongsToThrough
     {
-        return $this->belongsTo(Barangay::class);
+        return $this->belongsToThrough(Barangay::class);
     }
-    
+
+    /**
+     * Get the city that the barangay belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToThrough
+     */
+    public function city(): BelongsToThrough
+    {
+        return $this->belongsToThrough(City::class, Barangay::class);
+    }
+
+    /**
+     * Get the province that the city belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToThrough
+     */
+    public function province(): BelongsToThrough
+    {
+        return $this->belongsToThrough(Province::class, [Barangay::class, City::class]);
+    }
+
+    /**
+     * Get the region that the province belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToThrough
+     */
+    public function region(): BelongsToThrough
+    {
+        return $this->belongsToThrough(Region::class, [Barangay::class, City::class, Province::class]);
+    }
 }
