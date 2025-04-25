@@ -17,7 +17,7 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'pos_name' => $this->faker->randomElement(['senator', 'mayor', 'vice mayor', 'councilor', 'representative', 'barangay captain', 'barangay kagawad', 'SK chairperson', 'SK kagawad']),
+            'pos_name' => $this->faker->randomElement(['senator', 'mayor', 'vice mayor', 'congressman', 'councilor', 'representative', 'barangay captain', 'barangay kagawad', 'SK chairperson', 'SK kagawad']),
             'election_type_id' => $this->faker->numberBetween(1, 5),
         ];
     }

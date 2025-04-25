@@ -2,7 +2,7 @@
     'candidates' => '',
 ])
 
-<section class="mx-auto max-w-screen-xl bg-white dark:bg-gray-800">
+<section class="mx-auto max-w-screen-xl">
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         @foreach ($candidates as $key => $candidate)
 
@@ -22,5 +22,5 @@
         </article>
 
         @endforeach
-    </div> 
+    </div>
 </section>

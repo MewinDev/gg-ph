@@ -17,6 +17,7 @@ class PositionSeeder extends Seeder
             'senator' => '1',
             'mayor' => '2',
             'vice mayor' => '2',
+            'congressman' => '2',
             'councilor' => '2',
             'barangay captain' => '3',
             'barangay kagawad' => '3',

@@ -7,17 +7,17 @@
   <article class="space-y-16">
     <section class="gap-16 lg:grid lg:grid-cols-2">
       <div class="sm:mt-10">
-        <div class="text-justify text-gray-500 dark:text-gray-400">
-          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planning.</p>
-          <p class="mb-3 text-gray-500 dark:text-gray-400 text-base sm:text-lg indent-8">Benhur Abalos is a lawyer and longtime public servant, known for modernizing Mandaluyong City and later leading MMDA during the pandemic. He currently heads the Department of the Interior and Local Government, working on improving local government systems, disaster preparedness, and law enforcement reforms.</p>.
+        <div class="text-justify tracking-tight text-gray-500 dark:text-gray-400">
+          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planningx</p>
+          <p class="mb-3 text-gray-700 dark:text-gray-400 text-base sm:text-lg indent-8">Benhur Abalos is a lawyer and longtime public servant, known for modernizing Mandaluyong City and later leading MMDA during the pandemic. He currently heads the Department of the Interior and Local Government, working on improving local government systems, disaster preparedness, and law enforcement reforms.</p>.
         </div>
 
         <section>
-          <h2 class="mb-2  text-lg sm:text-xl tracking-wide font-medium text-gray-900 dark:text-white uppercase">Advocacies:</h2>
-          <ul class="space-y-4 text-left text-gray-500 dark:text-gray-400">
+          <h2 class="mb-2  text-lg sm:text-xl font-medium text-gray-900 dark:text-white uppercase">Advocacies:</h2>
+          <ul class="space-y-1 text-left text-gray-500 dark:text-gray-400">
             @php
               $advocacies = [
-              ['adv_name' => 'Local government empowerment'], 
+              ['adv_name' => 'Local government empowerment'],
               ['adv_name' => 'Disaster preparedness'],
               ['adv_name' => 'Digital governance'],
               ];
