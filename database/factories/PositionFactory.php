@@ -17,28 +17,16 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'pos_name' => $this->faker->randomElement(['senatorial', 'local', 'party list']),
+            'pos_name' => $this->faker->randomElement(['senator', 'mayor', 'vice mayor', 'councilor', 'representative', 'barangay captain', 'barangay kagawad', 'SK chairperson', 'SK kagawad']),
+            'election_type_id' => $this->faker->numberBetween(1, 5),
         ];
     }
 
-    public function senatorial(): static
+    public function positions(string $positions, int $type_id): static
     {
         return $this->state(fn (array $attributes) => [
-            'pos_name' => 'senatorial',
-        ]);
-    }
-
-    public function local(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'pos_name' => 'local',
-        ]);
-    }
-
-    public function partylist(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'pos_name' => 'party list',
+            'pos_name' => $positions,
+            'election_type_id' => $type_id
         ]);
     }
 }

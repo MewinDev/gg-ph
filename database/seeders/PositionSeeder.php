@@ -13,8 +13,20 @@ class PositionSeeder extends Seeder
      */
     public function run(): void
     {
-        Position::factory()->senatorial()->create();
-        Position::factory()->local()->create();
-        Position::factory()->partylist()->create();
+        $positions = [
+            'senator' => '1',
+            'mayor' => '2',
+            'vice mayor' => '2',
+            'councilor' => '2',
+            'barangay captain' => '3',
+            'barangay kagawad' => '3',
+            'SK chairperson' => '4',
+            'SK kagawad' => '4',
+            'representative' => '5',
+        ];
+
+        foreach ($positions as $position => $type_id) {
+            Position::factory()->positions($position, $type_id)->create();
+        }
     }
 }

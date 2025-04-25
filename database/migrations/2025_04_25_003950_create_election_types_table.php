@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('position_vote_limits', function (Blueprint $table) {
+        Schema::create('election_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('max_votes');
-            $table->foreignId('position_id')->nullable()->constrained('positions')->onDelete('set null');
+            $table->string('type_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('position_vote_limits');
+        Schema::dropIfExists('election_types');
     }
 };

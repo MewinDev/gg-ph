@@ -2,12 +2,35 @@
 
 namespace App\Models;
 
+use App\Models\Province;
+use App\Models\Region;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class City extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['city_name'];
+    protected $fillable = ['city_name', 'region_id', 'province_id'];
+
+    /**
+     * Get the region that owns the City
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function region(): BelongsTo
+    {
+        return $this->belongsTo(Region::class);
+    }
+    
+    /**
+     * Get the province that owns the City
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+    }
 }

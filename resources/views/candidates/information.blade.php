@@ -1,6 +1,6 @@
 <x-app-layout>
   <div class=" overflow-hidden shadow-sm lg:rounded-lg pb-10 pt-3 px-2">
-      <div class="md:p-5 text-gray-900 dark:text-gray-100 px-4 md:px-8 space-y-10">
+      <div class="md:p-5 text-gray-900 dark:text-gray-100 px-4 md:px-8 space-y-7">
 
             <div class="bg-white dark:bg-gray-800 p-5 border dark:border-gray-700 rounded-t-2xl">
                 <x-templates.breadcrumb :breadcrumb="[

@@ -11,9 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->string('pos_name');
+            $table->enum('pos_name', [
+                'senator', 
+                'mayor', 
+                'vice mayor', 
+                'councilor', 
+                'representative', 
+                'barangay captain', 
+                'barangay kagawad', 
+                'SK chairperson', 
+                'SK kagawad'
+            ]);
             $table->timestamps();
         });
         
@@ -23,21 +34,31 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        Schema::create('cities', function (Blueprint $table) {
-            $table->id();
-            $table->string('city_name');
-            $table->timestamps();
-        });
-        
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->string('prov_name');
             $table->timestamps();
         });
         
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->string('city_name');
+            $table->foreignId('region_id')->nullable()->constrained('regions')->onDelete('set null');
+            $table->foreignId('province_id')->nullable()->constrained('provinces')->onDelete('set null');
+            $table->timestamps();
+        });
+        
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
             $table->string('dis_name');
+            $table->timestamps();
+        });
+        
+        Schema::create('barangays', function (Blueprint $table) {
+            $table->id();
+            $table->string('bar_name');
+            $table->foreignId('city_id')->nullable()->constrained('cities')->onDelete('set null');
+            $table->foreignId('district_id')->nullable()->constrained('districts')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -47,10 +68,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('positions');
         Schema::dropIfExists('regions');
-        Schema::dropIfExists('local_positions');
-        Schema::dropIfExists('cities');
         Schema::dropIfExists('provinces');
+        Schema::dropIfExists('cities');
         Schema::dropIfExists('districts');
+        Schema::dropIfExists('barangays');
     }
 };

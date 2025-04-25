@@ -20,14 +20,12 @@ return new class extends Migration
             $table->string('can_nickname')->nullable();
             $table->string('can_sex');
             // Use constrained() for foreign keys
-            $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
+            $table->foreignId('position_id')->nullable()->constrained('positions')->onDelete('set null');
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('set null');
-            $table->foreignId('region_id')->nullable()->constrained('regions')->onDelete('set null');
-            $table->foreignId('province_id')->nullable()->constrained('provinces')->onDelete('set null');
-            $table->foreignId('city_id')->nullable()->constrained('cities')->onDelete('set null');
-            $table->foreignId('district_id')->nullable()->constrained('districts')->onDelete('set null');
+            $table->foreignId('barangay_id')->nullable()->constrained('barangays')->onDelete('set null');
             $table->timestamps();
         });
+        
     }
 
     /**

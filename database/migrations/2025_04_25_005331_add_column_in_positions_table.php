@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('candidates', function (Blueprint $table) {
-            $table->foreignId('campaign_team_id')->nullable()->constrained('campaign_teams')->onDelete('set null');
+        Schema::table('positions', function (Blueprint $table) {
+            $table->foreignId('election_type_id')->nullable()->constrained('election_types')->onDelete('set null');
         });
     }
 
@@ -21,9 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('candidates', function (Blueprint $table) {
-            $table->dropForeign(['campaign_team_id']); 
-            $table->dropColumn('campaign_team_id');
+        Schema::table('positions', function (Blueprint $table) {
+            $table->dropForeign(['election_type_id']);
+            $table->dropColumn('election_type_id');
         });
     }
 };

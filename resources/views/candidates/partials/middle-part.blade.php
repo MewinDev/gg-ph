@@ -1,5 +1,5 @@
 <section>
-    <div id="custom-controls-gallery" class="relative w-full mb-16 mt-5" data-carousel="slide">
+    <div id="custom-controls-gallery" class="relative w-full mb-16 mt-5 bg-blue-100 dark:bg-gray-800 pb-10 pt-1 px-5 sm:p-10" data-carousel="slide">
     
         <!-- Carousel wrapper -->
         <div class="relative mt-10 mb-5 overflow-hidden rounded-lg">
@@ -21,22 +21,22 @@
             <div class="carousel-item {{ $index === 0 ? 'block' : 'hidden' }}" data-carousel-item>
                 <figure class="max-w-screen-sm mx-auto text-center">
                 <header class="flex items-center justify-center gap-7 mb-6">
-                    <svg class="w-10 h-10 text-blue-500 dark:text-blue-600 -rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                    <svg class="w-7 h-7 sm:w-10 sm:h-10 text-blue-500 dark:text-blue-600 -rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
                     <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
                     </svg>
-                    <span class="text-2xl font-bold text-gray-900 dark:text-white uppercase">({{ $totalTestimonials }}) Achievements</span>
-                    <svg class="w-10 h-10 text-blue-500 dark:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                    <span class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase">({{ $totalTestimonials }}) Achievements</span>
+                    <svg class="w-7 h-7 sm:w-10 sm:h-10 text-blue-500 dark:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
                     <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
                     </svg>
                 </header>
                 <blockquote class="px-5">
-                    <p class="text-2xl italic font-medium text-gray-700 dark:text-gray-300">"{{ $testimonial['quote'] }}"</p>
+                    <p class="text-xl sm:text-2xl italic font-medium text-gray-700 dark:text-gray-300">"{{ $testimonial['quote'] }}"</p>
                 </blockquote>
                     <figcaption class="flex justify-center items-center space-x-3 mt-6">
                         <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}'s profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left">
-                            <h3 class="capitalize">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}</h3>
-                            <div class="text-sm font-light text-gray-500 dark:text-gray-400">{{ ucfirst($candidate->position->pos_name) }} Candidate</div>
+                            <h3 class="capitalize text-lg sm:text-xl">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}</h3>
+                            <div class="text-sm sm:text-base font-light text-gray-500 dark:text-gray-400">{{ ucfirst($candidate->position->pos_name) }} Candidate</div>
                         </div>
                     </figcaption> 
                 </figure>
@@ -75,7 +75,7 @@
         ]);
         $columns = ($count % 3 === 0 ? 3 : ($count % 2 === 0 ? 2 : 3));
     @endphp
-    <div class="px-4 mx-auto max-w-screen-xl text-center">
+    <div class="mx-auto w-full text-center">
         <div class="grid mb-8 grid-cols-{{ $columns }}">
             @foreach ([
                     ['experience' => 'Mayor of Mandaluyong City', 'since' => 'Year 1998 – 2004 | Year 2007 – 2016'],
@@ -83,7 +83,7 @@
                     ['experience' => 'Chairman of MMDA', 'since' => 'Year 2021 – 2022'],
                     ['experience' => 'Secretary, DILG', 'since' => 'Year 2022 – 2025'],
             ] as $testimonial)
-            <figure class="flex flex-col justify-center items-center p-5 text-center bg-gray-50 border-b border-gray-200 border dark:bg-gray-800 dark:border-gray-700">
+            <figure class="flex flex-col justify-center items-center p-5 text-center bg-gray-50 border-b border-gray-200 border dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <blockquote class="text-gray-500 dark:text-gray-400 px-5">
                     <div class="flex flex-col items-center gap-2 mb-2">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -91,7 +91,7 @@
                         </svg>
                         <span>Experience</span>
                     </div>
-                    <p class="text-base lg:text-lg font-semibold text-gray-800 dark:text-white mb-3">{{ $testimonial['experience'] }}</p>
+                    <p class="text-base lg:text-lg font-medium text-gray-800 dark:text-white mb-3">{{ $testimonial['experience'] }}</p>
                     <h3 class="text-sm lg:text-base font-normal text-gray-900 dark:text-gray-400">{{ $testimonial['since'] }}</h3>
                 </blockquote>   
             </figure>
