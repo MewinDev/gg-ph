@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Position extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = ['pos_name', 'election_type_id'];
 
     /**
@@ -26,11 +26,11 @@ class Position extends Model
     }
 
     /**
-     * Get the types that owns the Position
+     * Get the electionType that owns the Position
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function types(): BelongsTo
+    public function electionType(): BelongsTo
     {
         return $this->belongsTo(ElectionType::class);
     }

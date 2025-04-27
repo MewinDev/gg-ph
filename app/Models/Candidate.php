@@ -26,7 +26,7 @@ class Candidate extends Model
      */
     public function position(): BelongsTo
     {
-        return $this->belongsTo(Position::class);
+        return $this->belongsToThrough(Position::class, ElectionType::class;
     }
 
     /**
