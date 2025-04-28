@@ -18,18 +18,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden no-scrollbar space-x-8 sm:-my-px sm:ms-5 sm:flex font-bold uppercase whitespace-nowrap overflow-auto">
-                    <x-navs.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-navs.nav-link :href="route('dashboard')" :active="Str::contains(request()->url(), 'dashboard')">
                     {{ __('Dashboard') }}
                     </x-navs.nav-link>
-                    <x-navs.nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index') || Str::contains(request()->url(), 'senatorials')">
-                    {{ __('Senatorial Candidates') }}
-                    </x-navs.nav-link>
-                    <x-navs.nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index') || Str::contains(request()->url(), 'locals')">
-                    {{ __('Local Candidates') }}
-                    </x-navs.nav-link>
-                    <x-navs.nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index') || Str::contains(request()->url(), 'partylists')">
-                    {{ __('Party Lists') }}
-                    </x-navs.nav-link>
+                    @foreach ($electionTypes as $type)
+                        <x-navs.nav-link :href="route('candidates.index', $type)" :active="Str::contains(urldecode(request()->url()), urldecode($type))">
+                            {{ $type }} Candidates
+                        </x-navs.nav-link>
+                    @endforeach
                 </div>
             </div>
 
@@ -92,18 +88,14 @@
     <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-navs.responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                <x-navs.responsive-nav-link :href="route('dashboard')" :active="Str::contains(request()->url(), 'dashboard')">
                     {{ __('Dashboard') }}
                 </x-navs.responsive-nav-link>
-                <x-navs.responsive-nav-link :href="route('senatorials.index')" :active="request()->routeIs('senatorials.index')">
-                    {{ __('Senatorial Candidates') }}
-                </x-navs.responsive-nav-link>
-                <x-navs.responsive-nav-link :href="route('locals.index')" :active="request()->routeIs('locals.index')">
-                    {{ __('Local Candidates') }}
-                </x-navs.responsive-nav-link>
-                <x-navs.responsive-nav-link :href="route('partylists.index')" :active="request()->routeIs('partylists.index')">
-                    {{ __('Party Lists') }}
-                </x-navs.responsive-nav-link>
+                @foreach ($electionTypes as $type)
+                    <x-navs.nav-link :href="route('candidates.index', $type)" :active="Str::contains(request()->url(), $type)">
+                        {{ $type }} Candidates
+                    </x-navs.nav-link>
+                @endforeach
             </div>
     
             <!-- Responsive Settings Options -->

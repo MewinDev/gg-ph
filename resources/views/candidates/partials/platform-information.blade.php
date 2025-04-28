@@ -8,7 +8,7 @@
     <section class="gap-16 lg:grid lg:grid-cols-2">
       <div class="sm:mt-10">
         <div class="text-justify tracking-tight text-gray-500 dark:text-gray-400">
-          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planningx</p>
+          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planning.</p>
           <p class="mb-3 text-gray-700 dark:text-gray-400 text-base sm:text-lg indent-8">Benhur Abalos is a lawyer and longtime public servant, known for modernizing Mandaluyong City and later leading MMDA during the pandemic. He currently heads the Department of the Interior and Local Government, working on improving local government systems, disaster preparedness, and law enforcement reforms.</p>.
         </div>
 
@@ -52,7 +52,7 @@
 
       <div class="order-1 lg:order-2 my-2">
         <header>
-        <h2 class="mb-4 text-xl md:text-3xl lg:text-2xl tracking-tight font-extrabold text-blue-500 dark:text-blue-500">Discover the Comprehensive Plans and Platforms of <span class="underline underline-offset-4">{{ Str::upper($candidate->can_firstname . " " . $candidate->can_lastname) }}</span></h2>
+        <h2 class="mb-4 text-xl md:text-3xl lg:text-2xl tracking-tight font-extrabold text-blue-500 dark:text-blue-500">Discover the Comprehensive Plans and Platforms of <span class="underline underline-offset-4">{{ Str::upper($selectedCandidate->can_firstname . " " . $selectedCandidate->can_lastname) }}</span></h2>
         </header>
         <p class="font-light text-gray-500 text-base md:text-lg dark:text-gray-400">Watch the video to explore the detailed plans and platforms of our candidate, focusing on governance, public safety, digital transformation, and urban development. Learn how these initiatives aim to create a better future for everyone.</p>
       </div>

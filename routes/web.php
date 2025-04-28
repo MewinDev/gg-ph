@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminCandidatesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\ElectionType;
 
 
 
@@ -18,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('welcome');
-    
-Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+Route::get('/dashboard', function () {
+    $electionTypes = ElectionType::pluck('type_name')->toArray();
+    return view('dashboard', ['electionTypes' => $electionTypes]);
+})->name('dashboard');
 
 // Profile Controller
 Route::prefix('profile')->controller(ProfileController::class)->name('profile.')->group(function () {

@@ -3,39 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\ElectionType;
+use App\Services\CandidateService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
+
 
 class CandidatesController extends Controller
 {
+    protected $candidateService;
 
-    public function senatorialIndex() {
-
-        $candidates = Candidate::where('position_id', '1')->get();
-
-        return view('candidates.senatorials', ['candidates' => $candidates]);
-    }
-
-
-    public function localIndex() {
-
-        $candidates = Candidate::where('position_id', '2')->get();
-
-        return view('candidates.locals', ['candidates' => $candidates]);
-    }
-
-    public function partylistIndex() {
-        return view('candidates.partylists');
+    public function __construct(CandidateService $candidateService) {
+        $this->candidateService = $candidateService;
     }
 
     /**
-     * Display the specified resource.
+     * Display all candidates.
      */
-    public function show($type, Candidate $candidate)
-    {
-        $info = $candidate->position->electionType->type_name;
-        
 
-        return view('candidates.information', ['candidate' => $info]);
+    public function index($type) {
+        
+        $candidates = $this->candidateService->getCandidateByType($type);
+
+        if (is_null($candidates)) {
+            abort(404);
+        }
+
+        $firstCandidate = $candidates
+            ->first();
+
+        [$positionName, $electionTypeName] = $this
+            ->extractNames($firstCandidate, $type);
+
+        return view('candidates.index', compact('candidates', 'positionName', 'electionTypeName'));
     }
+
+    /**
+     * Display the selected candidate.
+     */
+    public function show($electionTypeName, $positionName, $candidateId) {
+        
+        $selectedCandidate = $this
+            ->candidateService
+            ->getCandidateById($electionTypeName, $positionName, $candidateId);
+
+        [$positionName, $electionTypeName] = $this->extractNames($selectedCandidate, $electionTypeName);
+
+        return view('candidates.show', compact('selectedCandidate', 'positionName', 'electionTypeName'));
+    }
+
+    /**
+     * Extract position and election type names safely.
+     */
+    public function extractNames($candidate, $defaultType) {
+        
+        $positionName = $candidate
+            ->position
+            ->pos_name ?? 'Unknown Position';
+
+        $electionTypeName = $candidate
+            ->position
+            ->electionType
+            ->type_name ?? ucfirst($defaultType);
+
+        return [$positionName, $electionTypeName];
+    }
+
 }

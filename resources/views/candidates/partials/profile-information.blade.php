@@ -5,10 +5,10 @@
             <header class="relative flex flex-col items-center p-5">
                 <img x-data x-on:click.prevent="$dispatch('open-modal', 'showprofile')" class="cursor-pointer w-full h-auto mb-3 rounded-xl shadow-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie image" />
                 <div class="text-center">
-                    <h1 class="mb-1 text-lg font-medium text-gray-900 dark:text-white capitalize">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_middlename . " " . $candidate->can_lastname) }}</h1>
-                    <p class="text-base text-gray-500 dark:text-gray-400 whitespace-nowrap capitalize">{{ $candidate->position->pos_name }} Candidate</p>
+                    <h1 class="mb-1 text-lg font-medium text-gray-900 dark:text-white capitalize">{{ Str::lower($selectedCandidate->can_firstname . " " . $selectedCandidate->can_middlename . " " . $selectedCandidate->can_lastname) }}</h1>
+                    <p class="text-base text-gray-500 dark:text-gray-400 whitespace-nowrap capitalize">{{ $selectedCandidate->position->pos_name }} Candidate</p>
                 </div>
-                <div class="absolute top-2 right-2 inline-flex items-center justify-center w-12 h-12 sm:w-9 sm:h-9 text-lg font-bold text-white bg-blue-500 border-2 border-white rounded-full dark:border-gray-800">{{ $candidate->can_ballot_number }}</div>
+                <div class="absolute top-2 right-2 inline-flex items-center justify-center w-12 h-12 sm:w-9 sm:h-9 text-lg font-bold text-white bg-blue-500 border-2 border-white rounded-full dark:border-gray-800">{{ $selectedCandidate->can_ballot_number }}</div>
             </header>
             
             <nav>
@@ -86,13 +86,13 @@
             <div class="flex space-x-3">
                 <img class="h-16 w-16 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie avatar" />
                 <div class="mt-2">
-                    <h2 class="mb-2 text-lg font-bold leading-none text-gray-900 dark:text-white capitalize">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}</h2>
-                    <span class="rounded bg-blue-100 px-1.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $candidate->can_nickname }} </span>
+                    <h2 class="mb-2 text-lg font-bold leading-none text-gray-900 dark:text-white capitalize">{{ Str::lower($selectedCandidate->can_firstname . " " . $selectedCandidate->can_lastname) }}</h2>
+                    <span class="rounded bg-blue-100 px-1.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $selectedCandidate->can_nickname }} </span>
                 </div>
             </div>
             <dl class="pt-2">
                 <dt class="font-semibold text-gray-900 dark:text-white">Full Name</dt>
-                <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_middlename . " " . $candidate->can_lastname) }}</dd>
+                <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_firstname . " " . $selectedCandidate->can_middlename . " " . $selectedCandidate->can_lastname) }}</dd>
             </dl>
             <div class="pt-2 grid grid-cols-2 gap-3">
                 <dl>
@@ -101,14 +101,14 @@
                 </dl>
                 <dl>
                     <dt class="font-semibold text-gray-900 dark:text-white">Sex</dt>
-                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($candidate->can_sex) }}</dd>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_sex) }}</dd>
                 </dl>
             </div>
         </div>
         <div class="space-y-6 mt-1 divide-y divide-gray-200 dark:divide-gray-700 border-t sm:border-0 border-gray-200 dark:border-gray-700">
             <dl class="pt-2">
                 <dt class="font-semibold text-gray-900 dark:text-white">Position</dt>
-                <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($candidate->position->pos_name) }}</dd>
+                <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->position->pos_name) }}</dd>
             </dl>
             <dl class="pt-2">
                 <dt class="font-semibold text-gray-900 dark:text-white">Political Party</dt>

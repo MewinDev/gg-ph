@@ -4,8 +4,8 @@
 
             <div class="bg-white dark:bg-gray-800 p-5 border dark:border-gray-700 rounded-t-2xl">
                 <x-templates.breadcrumb :breadcrumb="[
-                ['name' => 'Back', 'link' => route('senatorials.index')],
-                ['name' => ucfirst($candidate->position->pos_name) . ' Information', 'link' => '']
+                ['name' => 'Back', 'link' => route('candidates.index', $electionTypeName)],
+                ['name' => 'Candidates Information', 'link' => '']
             ]" />
             </div>
 

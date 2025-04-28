@@ -33,10 +33,10 @@
                     <p class="text-xl sm:text-2xl italic font-medium text-gray-700 dark:text-gray-300">"{{ $testimonial['quote'] }}"</p>
                 </blockquote>
                     <figcaption class="flex justify-center items-center space-x-3 mt-6">
-                        <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}'s profile picture">
+                        <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="{{ Str::lower($selectedCandidate->can_firstname . " " . $selectedCandidate->can_lastname) }}'s profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left">
-                            <h3 class="capitalize text-lg sm:text-xl">{{ Str::lower($candidate->can_firstname . " " . $candidate->can_lastname) }}</h3>
-                            <div class="text-sm sm:text-base font-light text-gray-500 dark:text-gray-400">{{ ucfirst($candidate->position->pos_name) }} Candidate</div>
+                            <h3 class="capitalize text-lg sm:text-xl">{{ Str::lower($selectedCandidate->can_firstname . " " . $selectedCandidate->can_lastname) }}</h3>
+                            <div class="text-sm sm:text-base font-light text-gray-500 dark:text-gray-400">{{ ucfirst($selectedCandidate->position->pos_name) }} Candidate</div>
                         </div>
                     </figcaption> 
                 </figure>

@@ -18,7 +18,7 @@ class ElectionTypeSeeder extends Seeder
             'local',
             'barangay',
             'SK (sangguniang kabataan)',
-            'party list'
+            'partylist'
         ];
 
         foreach ($types as $type) {
