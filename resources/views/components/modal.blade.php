@@ -81,7 +81,7 @@ $widthClass = [
     >
         <!-- Modal Header -->
         <div class="flex items-center justify-between px-4 py-3 border-b border-gray-300 dark:border-gray-700">
-            <h3 id="modal-title-{{ $name }}" class="text-lg font-bold text-gray-900 dark:text-white">
+            <h3 id="modal-title-{{ $name }}" class="text-lg font-bold text-gray-900 dark:text-white uppercase">
                 {{ $title }}
             </h3>
             <button
