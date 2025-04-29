@@ -30,6 +30,17 @@ export default {
         '8xl': '90rem', // 1440px
         '9xl': '100rem', // 1600px
       },
+      screens: {
+        'xs': '480px', // Extra small screens
+        'sm': '640px', // Small screens
+        'md': '768px', // Medium screens
+        'lg': '1024px', // Large screens
+        'xl': '1280px', // Extra large screens
+        '2xl': '1536px', // 2x Extra large screens
+        '3xl': '1600px', // Custom large screen
+        '4xl': '1920px', // 4x Extra large screens
+        '5xl': '2560px', // 5x Extra large screens
+      },
     },
   },
 

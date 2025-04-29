@@ -25,6 +25,7 @@ class CandidatesController extends Controller
     public function index($type) {
         
         $candidates = $this->candidateService->getCandidateByType($type);
+        $groupedCandidates = $candidates->groupBy('position.pos_name');
 
         if (is_null($candidates)) {
             abort(404);
@@ -36,7 +37,7 @@ class CandidatesController extends Controller
         [$positionName, $electionTypeName] = $this
             ->extractNames($firstCandidate, $type);
 
-        return view('candidates.index', compact('candidates', 'positionName', 'electionTypeName'));
+        return view('candidates.index', compact('groupedCandidates', 'positionName', 'electionTypeName'));
     }
 
     /**

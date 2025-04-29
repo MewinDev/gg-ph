@@ -37,10 +37,8 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
-                <div class="max-w-8xl mx-auto">
-                    {{ $slot }}
-                </div>
+            <main class="max-w-9xl mx-auto">
+                {{ $slot }}
             </main>
         </div>
         @stack('scripts')
