@@ -18,11 +18,13 @@ return new class extends Migration
             $table->string('can_lastname');
             $table->string('can_middlename')->nullable();
             $table->string('can_nickname')->nullable();
+            $table->string('can_age');
             $table->string('can_sex');
+            $table->date('can_birthdate');
+            $table->string('can_years_of_service');
             // Use constrained() for foreign keys
             $table->foreignId('position_id')->nullable()->constrained('positions')->onDelete('set null');
             $table->foreignId('partylist_id')->nullable()->constrained('partylists')->onDelete('set null');
-            $table->foreignId('barangay_id')->nullable()->constrained('barangays')->onDelete('set null');
             $table->timestamps();
         });
         

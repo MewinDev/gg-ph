@@ -1,7 +1,7 @@
 <aside class="w-full" id="profile">
     <div class="flex flex-col sm:flex-row lg:flex-col gap-5 font-light text-gray-500 sm:text-lg dark:text-gray-400">
 
-        <article class="group flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <article class="group pb-5 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <header class="relative flex flex-col items-center p-5">
                 <img x-data x-on:click.prevent="$dispatch('open-modal', 'showprofile')" class="cursor-pointer w-full h-auto mb-3 rounded-xl shadow-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie image" />
                 <div class="text-center">
@@ -35,10 +35,75 @@
                     </li> 
                 </ul>
             </nav>
+
+            <section class="block lg:block md:hidden">
+            
+                <hr class="h-px mt-3 mb-5 bg-gray-200 border-0 dark:bg-gray-700">
+
+                <h2 class="mb-3 text-base md:text-lg font-bold text-gray-900 dark:text-white px-5 capitalize">Candidate Information:</h2>
+                <div class="grid gap-4 grid-cols-2 text-sm md:text-base px-5">
+                    <dl>
+                        <dt class="font-semibold text-gray-900 dark:text-white">Sex</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_sex) }}</dd>
+                    </dl>
+                    <dl>
+                        <dt class="font-semibold text-gray-900 dark:text-white">Age</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ $selectedCandidate->can_age }} Years Old</dd>
+                    </dl>
+                    <dl class="pt-2 md:col-span-2">
+                        <dt class="font-semibold text-gray-900 dark:text-white">Birthdate</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ dateFormat($selectedCandidate->can_birthdate) }}</dd>
+                    </dl>
+                    <dl class="pt-2 md:col-span-2">
+                        <dt class="font-semibold text-gray-900 dark:text-white">Years of Polical Service</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_years_of_service) }} Years</dd>
+                    </dl>
+                    <dl class="pt-2 md:col-span-2">
+                        <dt class="font-semibold text-gray-900 dark:text-white">Political Party</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">Lakas–CMD</dd>
+                    </dl>
+                    <dl class="pt-2 md:col-span-2">
+                        <dt class="font-semibold text-gray-900 dark:text-white">Campaign Team</dt>
+                        <dd class="text-gray-500 dark:text-gray-400 capitalize">Giting</dd>
+                    </dl>
+                </div>
+            </section>
         </article>
 
+        
+
+        <section class="w-full bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-4 hidden md:block lg:hidden">
+            <h2 class="mb-3 text-base md:text-lg font-bold text-gray-900 dark:text-white px-5 capitalize">Candidate Information:</h2>
+            <div class="grid gap-4 grid-cols-2 text-sm md:text-base px-5">
+                <dl>
+                    <dt class="font-semibold text-gray-900 dark:text-white">Sex</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_sex) }}</dd>
+                </dl>
+                <dl>
+                    <dt class="font-semibold text-gray-900 dark:text-white">Age</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ $selectedCandidate->can_age }} Years Old</dd>
+                </dl>
+                <dl class="pt-2 md:col-span-2">
+                    <dt class="font-semibold text-gray-900 dark:text-white">Birthdate</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ dateFormat($selectedCandidate->can_birthdate) }}</dd>
+                </dl>
+                <dl class="pt-2 md:col-span-2">
+                    <dt class="font-semibold text-gray-900 dark:text-white">Years of Polical Service</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">{{ Str::lower($selectedCandidate->can_years_of_service) }} Years</dd>
+                </dl>
+                <dl class="pt-2 md:col-span-2">
+                    <dt class="font-semibold text-gray-900 dark:text-white">Political Party</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">Lakas–CMD</dd>
+                </dl>
+                <dl class="pt-2 md:col-span-2">
+                    <dt class="font-semibold text-gray-900 dark:text-white">Campaign Team</dt>
+                    <dd class="text-gray-500 dark:text-gray-400 capitalize">Giting</dd>
+                </dl>
+            </div>
+        </section>
+
         <div class="w-full bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-4">
-            <h2 class="mb-3 text-lg font-bold text-gray-900 dark:text-white capitalize">Survey Ratings:</h2>
+            <h3 class="mb-3 text-lg font-bold text-gray-900 dark:text-white capitalize">Survey Ratings:</h3>
             <div class="flex items-center mb-2">
             <svg class="w-4 h-4 text-blue-500 mb-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
@@ -60,9 +125,11 @@
                 }
                 $averageRating = $totalRatings > 0 ? $averageRating / $totalRatings : 0;
             @endphp
-            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">{{ number_format($averageRating, 2) }} out of 5.00 <span class="lg:hidden">({{ number_format($totalRatings) }} global ratings)</span></p>
+                <div>
+                    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">{{ number_format($averageRating, 2) }} out of 5.00 <span class="md:hidden">({{ number_format($totalRatings) }} global ratings)</span></p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400 md:block hidden">{{ number_format($totalRatings) }} global ratings</p>
+                </div>
             </div>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 lg:block hidden">{{ number_format($totalRatings) }} global ratings</p>
             @foreach ($ratings as $rating)
             @php
                 $percentage = $totalRatings > 0 ? ($rating['count'] / $totalRatings) * 100 : 0;

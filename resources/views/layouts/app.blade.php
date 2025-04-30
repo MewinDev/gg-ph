@@ -32,12 +32,12 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased font-abz">
+    <body class="font-sans antialiased font-abz bg-clip-text bg-gradient-to-r to-blue-100 from-blue-50">
         <div class="min-h-screen dark:bg-gray-900">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="max-w-9xl mx-auto">
+            <main class="max-w-9xl mx-auto p-3">
                 {{ $slot }}
             </main>
         </div>

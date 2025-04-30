@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ElectionType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,16 +18,18 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'pos_name' => $this->faker->randomElement(['senator', 'mayor', 'vice mayor', 'congressman', 'councilor', 'representative', 'barangay captain', 'barangay kagawad', 'SK chairperson', 'SK kagawad']),
-            'election_type_id' => $this->faker->numberBetween(1, 5),
+            'pos_code' => $this->faker->randomElement(['president', 'vice_president', 'senator']),
+            'pos_name' => $this->faker->name(),
+            'election_type_id' => ElectionType::inRandomOrder()->first()->id ?? 1,
         ];
     }
 
-    public function positions(string $positions, int $type_id): static
+    public function positions(string $positions, string $position_code): static
     {
         return $this->state(fn (array $attributes) => [
+            'pos_code' => $position_code,
             'pos_name' => $positions,
-            'election_type_id' => $type_id
+            'election_type_id' => ElectionType::inRandomOrder()->first()->id ?? 1,
         ]);
     }
 }

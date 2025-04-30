@@ -17,7 +17,7 @@ class ElectionTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'type_name' => $this->faker->randomElement(['national', 'local', 'barangay', 'SK (sangguniang kabataan)', 'partylist'])
+            'type_name' => $this->faker->randomElement(['national'])
         ];
     }
 

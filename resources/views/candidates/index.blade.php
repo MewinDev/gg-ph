@@ -13,7 +13,7 @@
                             <h2 class="mb-7 text-xl md:text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white uppercase border-l-4 border-blue-400 pl-2">{{ $positionName }}</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                                 @foreach ($candidates as $candidate)
-                                <x-templates.card :candidate="$candidate" href="{{ route('candidates.show', [slugify($electionTypeName), slugify($candidate->position->pos_name), $candidate->id]) }}"/>
+                                <x-templates.card :candidate="$candidate" href="{{ route('candidates.show', [slugify($electionTypeName), slugify($candidate->position->pos_code), $candidate->id]) }}"/>
                                 @endforeach
                             </div>
                         </article>

@@ -8,7 +8,7 @@
     <section class="gap-16 lg:grid lg:grid-cols-2">
       <div class="sm:mt-10">
         <div class="text-justify tracking-tight text-gray-500 dark:text-gray-400">
-          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planning.</p>
+          <p class="mb-5 text-gray-800 dark:text-gray-300 text-base sm:text-lg md:text-xl underline underline-offset-4">Strengthen local governance, public safety, digital government transformation, and urban development planning</p>
           <p class="mb-3 text-gray-700 dark:text-gray-400 text-base sm:text-lg indent-8">Benhur Abalos is a lawyer and longtime public servant, known for modernizing Mandaluyong City and later leading MMDA during the pandemic. He currently heads the Department of the Interior and Local Government, working on improving local government systems, disaster preparedness, and law enforcement reforms.</p>.
         </div>
 
@@ -28,7 +28,7 @@
                 <svg class="shrink-0 w-4 h-4 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M1 5.917 5.724 10.5 15 1.5"/>
                 </svg>
-                <span class="text-base sm:text-xl">{{ $advocacy['adv_name'] }}</span>
+                <span class="text-base sm:text-lg">{{ $advocacy['adv_name'] }}</span>
               </li>
             @endforeach
           </ul>

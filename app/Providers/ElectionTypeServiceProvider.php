@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ElectionType;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class ElectionTypeServiceProvider extends ServiceProvider
@@ -20,6 +21,8 @@ class ElectionTypeServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->share('electionTypes', ElectionType::pluck('type_name')->toArray());
+        if (Schema::hasTable('election_types')) {
+            view()->share('electionTypes', ElectionType::pluck('type_name')->toArray());
+        }
     }
 }

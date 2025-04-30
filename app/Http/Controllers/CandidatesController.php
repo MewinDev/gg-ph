@@ -25,7 +25,7 @@ class CandidatesController extends Controller
     public function index($type) {
         
         $candidates = $this->candidateService->getCandidateByType($type);
-        $groupedCandidates = $candidates->groupBy('position.pos_name');
+        $groupedCandidates = $candidates->groupBy('position.pos_code');
 
         if (is_null($candidates)) {
             abort(404);
@@ -61,7 +61,7 @@ class CandidatesController extends Controller
         
         $positionName = $candidate
             ->position
-            ->pos_name ?? 'Unknown Position';
+            ->pos_code ?? 'Unknown Position';
 
         $electionTypeName = $candidate
             ->position

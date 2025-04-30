@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaign_teams', function (Blueprint $table) {
+
+        Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->string('camp_name');
-            $table->string('camp_logo')->nullable();
-            $table->string('camp_color');
-            $table->string('camp_description')->nullable();
+            $table->string('pos_name');
+            $table->enum('pos_code', [
+                'president',
+                'vice_president',
+                'senator',
+            ]);
+            $table->integer('pos_max_votes');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaign_teams');
+        Schema::dropIfExists('positions');
     }
 };

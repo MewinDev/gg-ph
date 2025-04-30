@@ -14,11 +14,7 @@ class ElectionTypeSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            'national',
-            'local',
-            'barangay',
-            'SK (sangguniang kabataan)',
-            'partylist'
+            'national'
         ];
 
         foreach ($types as $type) {

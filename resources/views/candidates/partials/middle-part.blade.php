@@ -1,5 +1,5 @@
 <section>
-    <div id="custom-controls-gallery" class="relative w-full mb-16 mt-5 bg-blue-100 dark:bg-gray-800 pb-10 pt-1 px-5 sm:p-10" data-carousel="slide">
+    <div id="custom-controls-gallery" class="relative w-full mb-16 mt-5 bg-blue-200 dark:bg-gray-800 pb-10 pt-1 px-5 sm:p-10" data-carousel="slide">
     
         <!-- Carousel wrapper -->
         <div class="relative mt-10 mb-5 overflow-hidden rounded-lg">

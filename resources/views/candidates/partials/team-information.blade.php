@@ -23,22 +23,18 @@
         @endphp
 
         <section class="space-y-10">
-            <!-- Mayor - full width -->
-            <div class="grid grid-cols-1">
-                @if ($mayor)
-                    @include('components.templates.member-profile', ['member' => $mayor])
-                @endif
-            </div>
-
-            <!-- Vice Mayor and Congressman - 2 columns -->
-            <div class="grid grid-cols-2 gap-8">
+            <!-- Mayor, Vice Mayor, and Congressman - 3 columns -->
+            @if ($mayor)
+                @include('components.templates.member-profile', ['member' => $mayor])
+            @endif
+            <div class="grid grid-cols-2 xs:grid-cols-3 gap-8">
                 @foreach ($viceAndCongress as $member)
                     @include('components.templates.member-profile', ['member' => $member])
                 @endforeach
             </div>
 
             <!-- Councilors - 3 per row -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div class="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
                 @foreach ($councilors as $member)
                     @include('components.templates.member-profile', ['member' => $member])
                 @endforeach

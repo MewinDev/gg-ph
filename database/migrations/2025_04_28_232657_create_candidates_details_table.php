@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('candidates_bio', function (Blueprint $table) {
             $table->id();
             $table->longText('bio_biography');
@@ -21,11 +22,11 @@ return new class extends Migration
         Schema::create('candidates_educations', function (Blueprint $table) {
             $table->id();
             $table->string('edu_schoolname');
-            $table->string('edu_degree')->nullable();
+            $table->string('edu_degree');
             $table->string('edu_field_of_study')->nullable();
-            $table->string('edu_start_year')->nullable();
-            $table->string('edu_end_year')->nullable();
-            $table->string('edu_description')->nullable();
+            $table->string('edu_start_year');
+            $table->string('edu_end_year');
+            $table->longText('edu_description')->nullable();
             $table->foreignId('candidate_id')->nullable()->constrained('candidates')->onDelete('set null');
             $table->timestamps();
         });
@@ -33,7 +34,8 @@ return new class extends Migration
         Schema::create('candidates_advocacies', function (Blueprint $table) {
             $table->id();
             $table->string('adv_title');
-            $table->string('adv_description')->nullable();
+            $table->longText('adv_description')->nullable();
+            $table->string('adv_media')->nullable();
             $table->foreignId('candidate_id')->nullable()->constrained('candidates')->onDelete('set null');
             $table->timestamps();
         });
@@ -49,17 +51,9 @@ return new class extends Migration
         Schema::create('candidates_experiences', function (Blueprint $table) {
             $table->id();
             $table->string('exp_title');
-            $table->string('exp_oraganization')->nullable();
+            $table->string('exp_organization')->nullable();
             $table->date('exp_start_date');
             $table->date('exp_end_date');
-            $table->foreignId('candidate_id')->nullable()->constrained('candidates')->onDelete('set null');
-            $table->timestamps();
-        });
-        
-        Schema::create('candidates_medias', function (Blueprint $table) {
-            $table->id();
-            $table->string('med_name');
-            $table->enum('med_type', ['image', 'video']);
             $table->foreignId('candidate_id')->nullable()->constrained('candidates')->onDelete('set null');
             $table->timestamps();
         });
