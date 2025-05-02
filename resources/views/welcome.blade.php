@@ -32,7 +32,7 @@
     </head>
     <body class="antialiased font-abz">
         
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-blue-100 dark:bg-gray-900">
             <nav x-data="{ open: false }" class="absolute top-0 right-0 mt-4 mr-4">
                 <!-- Primary Navigation Menu -->
                 <div class="flex items-center">
@@ -64,12 +64,10 @@
                     <div class="flex flex-col space-y-3">
                     @if (Route::has('login'))
                         @auth
-                        <x-contents.admin>
                             <x-forms.link href="{{ route('dashboard') }}" size="xl" color='gray' extraClass='uppercase'>Dashboard</x-forms.link>
-                        </x-contents.admin>
                         @else
-                        <x-forms.link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase'>Log In</x-forms.link>
-                        <x-forms.link href="{{ route('dashboard') }}" size='xl' color='gray' extraClass='uppercase'>List of Candidates  </x-forms.link>
+                            <x-forms.link href="{{ route('login') }}" size="xl" color='gray' extraClass='uppercase'>Log In</x-forms.link>
+                            <x-forms.link href="{{ route('dashboard') }}" size='xl' color='gray' extraClass='uppercase'>List of Candidates  </x-forms.link>
                         @endauth
                     @endif
                     <x-forms.button size='xl' color='gray' extraClass='uppercase'>Sample Voting Ballots</x-forms.button>

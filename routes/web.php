@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminCandidatesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Models\ElectionType;
 
@@ -20,10 +21,7 @@ use App\Models\ElectionType;
 
 Route::view('/', 'welcome')->name('welcome');
 
-Route::get('/dashboard', function () {
-    $electionTypes = ElectionType::pluck('type_name')->toArray();
-    return view('dashboard', ['electionTypes' => $electionTypes]);
-})->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Profile Controller
 Route::prefix('profile')->controller(ProfileController::class)->name('profile.')->group(function () {
@@ -41,3 +39,4 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 require __DIR__.'/candidates.php';
+require __DIR__.'/admin.php';
