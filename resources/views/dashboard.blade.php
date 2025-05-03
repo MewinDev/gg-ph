@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="overflow-hidden pb-10 pt-5">
         <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Dashboard</h2>
-        <div class="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             @foreach ($candidatesTotal as $type => $count)
                 <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex flex-row sm:flex-col xl:flex-row items-start gap-3">

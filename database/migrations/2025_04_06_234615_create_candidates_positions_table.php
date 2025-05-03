@@ -20,7 +20,6 @@ return new class extends Migration
                 'vice_president',
                 'senator',
             ]);
-            $table->integer('pos_max_votes');
             $table->timestamps();
         });
     }

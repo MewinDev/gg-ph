@@ -2,9 +2,9 @@
 <article class="text-center text-gray-500 dark:text-gray-400">
     <header>
          <a href="#" rel="noopener noreferrer">
-            <img class="mx-auto mb-4 w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-lg" src="{{ $member['image'] }}" alt="{{ $member['name'] }} Avatar">
+            <img class="mx-auto mb-4 w-28 h-28 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-lg" src="{{ $member['image'] }}" alt="{{ $member['name'] }} Avatar">
         </a>
-        <h3 class="mb-1 text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h3 class="mb-1 text-sm xs:text-base sm:text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">{{ $member['name'] }}</a>
         </h3>
         <p class="text-sm md:text-base capitalize">{{ $member['position'] }}</p>

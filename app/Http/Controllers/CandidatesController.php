@@ -23,9 +23,9 @@ class CandidatesController extends Controller
      */
 
     public function index($type) {
-        
+
         $candidates = $this->candidateService->getCandidateByType($type);
-        $groupedCandidates = $candidates->groupBy('position.pos_code');
+        $groupedCandidates = $candidates->groupBy('position.pos_name');
 
         if (is_null($candidates)) {
             abort(404);
@@ -44,7 +44,7 @@ class CandidatesController extends Controller
      * Display the selected candidate.
      */
     public function show($electionTypeName, $positionName, $candidateId) {
-        
+
         $selectedCandidate = $this
             ->candidateService
             ->getCandidateById($electionTypeName, $positionName, $candidateId);
@@ -58,10 +58,10 @@ class CandidatesController extends Controller
      * Extract position and election type names safely.
      */
     public function extractNames($candidate, $defaultType) {
-        
+
         $positionName = $candidate
             ->position
-            ->pos_code ?? 'Unknown Position';
+            ->pos_name ?? 'Unknown Position';
 
         $electionTypeName = $candidate
             ->position

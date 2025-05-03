@@ -37,7 +37,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="max-w-9xl mx-auto p-3">
+            <main class="xl:max-w-8xl 3xl:max-w-9xl mx-auto p-3">
                 {{ $slot }}
             </main>
         </div>

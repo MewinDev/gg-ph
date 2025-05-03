@@ -12,17 +12,17 @@
             <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
 
                 <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
-                    @include('candidates.partials.profile-information')
+                    @include('candidates.partials.show-profile')
                 </div>
 
                 <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
-                    @include('candidates.partials.platform-information')
+                    @include('candidates.partials.show-platform')
                 </div>
 
                 <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5">
-                    @include('candidates.partials.middle-part')
+                    @include('candidates.partials.show-extra')
 
-                    @include('candidates.partials.team-information')
+                    {{ $selectedCandidate->campaign_teams_id ? include('candidates.partials.show-teams') : '' }}
                 </div>
 
             </main>
