@@ -55,32 +55,40 @@
                         <x-navs.dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="inline-flex items-center px-3 py-2 border border-transparent text-base leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
-                                <div>{{ Auth::user()->name }}</div>
-
-                                <div class="ms-1">
-                                    <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
+                                    <img class="w-8 h-8 rounded-full" src="{{ asset('images/gg-ph-logo.png') }}" alt="user photo">
                                 </button>
                             </x-slot>
 
                             <x-slot name="content">
 
-                                <x-navs.dropdown-link :href="route('profile.edit')">
-                                    {{ __('Profile') }}
-                                </x-navs.dropdown-link>
+                                <div class="px-4 py-3">
+                                    <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
+                                    <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
+                                </div>
+                                <div>
+                                    @foreach ($list as $name => $route)
+                                        <x-navs.dropdown-link :href="route($route)">
+                                            {{ __($name) }}
+                                        </x-navs.dropdown-link>
+                                    @endforeach
+                                </div>
 
-                                <!-- Authentication -->
-                                <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                                <div>
+                                    <x-navs.dropdown-link :href="route('profile.edit')">
+                                        {{ __('Setting') }}
+                                    </x-navs.dropdown-link>
 
-                                <x-navs.dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-navs.dropdown-link>
-                                </form>
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-navs.dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </x-navs.dropdown-link>
+                                    </form>
+                                </div>
                             </x-slot>
                         </x-dropdown>
                     </div>
@@ -113,6 +121,12 @@
 
                     <div class="mt-3 space-y-1">
 
+                            @foreach ($list as $name => $route)
+                                <x-navs.responsive-nav-link :href="route($route)">
+                                    {{ __($name) }}
+                                </x-navs.responsive-nav-link>
+                            @endforeach
+
                             <x-navs.responsive-nav-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-navs.responsive-nav-link>
@@ -132,25 +146,3 @@
             </x-contents.admin>
         </div>
 </nav>
-<x-contents.admin>
-    <nav class="bg-blue-100 dark:bg-gray-800">
-        <div class="max-w-9xl mx-auto py-3 px-5 md:px-10">
-            <div class="flex items-center">
-                <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Add Candidates</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Company</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Team</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Features</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</x-contents.admin>

@@ -46,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
+
     /**
      * Get the role for the User
      *
@@ -59,6 +59,6 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        return $this->role && $this->role->rol_name === $role;
+        return $this->role && strtolower($this->role->rol_name) === strtolower($role);
     }
 }

@@ -30,13 +30,6 @@ Route::prefix('profile')->controller(ProfileController::class)->name('profile.')
     Route::delete('/', 'destroy')->name('destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    // Candidates Controllers
-    Route::prefix('admin')->controller(AdminCandidatesController::class)->name('admin.')->group(function () {
-        Route::get('/dashboard', 'index')->name('index');
-    });
-});
-
 require __DIR__.'/auth.php';
 require __DIR__.'/candidates.php';
 require __DIR__.'/admin.php';

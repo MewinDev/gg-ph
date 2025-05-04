@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
-use App\Models\ElectionType;
 use App\Services\CandidateService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

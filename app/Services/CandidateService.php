@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Services;
 
@@ -7,8 +7,14 @@ use App\Models\ElectionType;
 
 class CandidateService
 {
+    protected $electionTypeService;
+
+    public function __construct(ElectionTypeService $electionTypeService) {
+        $this->electionTypeService = $electionTypeService;
+    }
+
     public function getCandidateByType(string $type) {
-        $electionType = ElectionType::where('type_name', $type)->first();
+        $electionType = $this->electionTypeService->getElectionByTypeName($type);
 
         if (!$electionType) {
             return null;
@@ -32,7 +38,7 @@ class CandidateService
     }
 
     public function getCandidateById(string $electionType, string $positionName, $candidateId) {
-        
+
         $candidate = Candidate::with('position.electionType')
             ->whereHas('position.electionType', fn($query) => $query->where('type_name', $electionType))
             ->findOrfail($candidateId);
