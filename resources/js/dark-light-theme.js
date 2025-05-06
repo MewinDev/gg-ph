@@ -4,7 +4,7 @@ var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
 // Apply theme on page load
 if (
-  localStorage.getItem('color-theme') === 'dark' || 
+  localStorage.getItem('color-theme') === 'dark' ||
   (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
 ) {
   document.documentElement.classList.add('dark');

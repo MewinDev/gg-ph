@@ -9,9 +9,11 @@
 
 @php
     $base = 'font-medium rounded-lg focus:outline-none focus:ring-4 text-center';
+    $disable = "disabled:cursor-not-allowed disabled:opacity-50";
 
     // Sizes
     $sizeClasses = [
+        'xs' => 'text-xs px-4 py-2',
         'sm' => 'text-sm px-4 py-2',
         'md' => 'text-base px-4 py-2',
         'lg' => 'text-lg px-4 py-2',
@@ -45,7 +47,7 @@
 
     // Final class composition
     $theme = $colorThemes[$color][$outline ? 'outline' : 'solid'] ?? $colorThemes['blue']['solid'];
-    $finalClass = "$base $sizeClass $theme $extraClass";
+    $finalClass = "$base $sizeClass $disable $theme $extraClass";
 @endphp
 
 <button

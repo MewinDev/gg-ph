@@ -5,22 +5,22 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('images/gg-ph-logo.png') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
         {{-- SEO Meta Tags --}}
         <title>@yield('title', 'GoodGov PH')</title>
         <meta name="description" content="@yield('meta_description', 'Learn more about GoodGov PH, a platform for transparent and participatory governance in the Philippines.')">
         <meta name="keywords" content="@yield('meta_keywords', 'good governance, transparency, public service, Philippines government, GG PH')">
-        
+
         {{-- Canonical URL --}}
         <link rel="canonical" href="{{ url()->current() }}"/>
-        
+
         {{-- Open Graph Meta for Social Sharing --}}
         <meta property="og:title" content="About GoodGov PH">
         <meta property="og:description" content="Meet the minds behind GoodGov PH and our mission to empower citizens through digital governance tools.">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="website">
         <meta property="og:image" content="{{ asset('images/gg-ph-logo.png') }}">
-        
+
         {{-- Twitter Cards --}}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="About Us - GoodGov PH">
@@ -28,11 +28,21 @@
         <meta name="twitter:image" content="{{ asset('images/gg-ph-logo.png') }}">
 
         <!-- Scripts -->
+        <script>
+            if (
+                localStorage.getItem('color-theme') === 'dark' ||
+                (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased font-abz">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            
+
             <nav x-data="{ open: false }" class="absolute top-0 right-0 mt-4 mr-4">
                 <!-- Primary Navigation Menu -->
                 <div class="flex items-center">
@@ -55,7 +65,7 @@
                         <span class="flex items-end">Go<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="text-blue-500 w-16 mr-3">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                           </svg> PH</span>
-                    </h1> 
+                    </h1>
                 </a>
             </div>
 

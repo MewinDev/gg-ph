@@ -30,9 +30,19 @@
         <link rel="icon" href="{{ asset('images/gg-ph-logo.png') }}" type="image/x-icon">
 
         <!-- Scripts -->
+        <script>
+            if (
+                localStorage.getItem('color-theme') === 'dark' ||
+                (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased font-abz bg-clip-text bg-gradient-to-r to-blue-100 from-blue-50">
+    <body class="font-sans antialiased font-abz bg-gray-50">
         <div class="min-h-screen dark:bg-gray-900">
             @include('layouts.navigation')
 

@@ -13,7 +13,13 @@ class RoleBased
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if (auth()->check() && auth()->user()->hasRole($role)) {
+        // Redirect to login if not authenticated
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        // Check if user has the required role
+        if (auth()->user()->hasRole($role)) {
             return $next($request);
         }
         abort(403, 'Unauthorized');

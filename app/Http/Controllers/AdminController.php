@@ -35,9 +35,6 @@ class AdminController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Store the data in the database
-        // ...
-
         return redirect()->route('admin.candidates.create')->with('success', 'Admin created successfully!');
     }
 }
