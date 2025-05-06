@@ -5,9 +5,11 @@
     </header>
 
     <div class="flex flex-col md:flex-col lg:flex-row items-start gap-5 mt-3">
-        <img src="{{ asset('images/gg-ph-logo.png') }}" alt="candidate-profile" class="w-28 h-28 object-cover rounded-md border border-gray-300 dark:border-gray-600" />
+        <img src="{{ asset('images/gg-ph-logo.png') }}" alt="candidate-profile"
+            class="w-28 h-28 object-cover rounded-md border border-gray-300 dark:border-gray-600" />
         <div class="w-full">
-            <x-forms.file-input color="gray" label="Profile" name="profile" id="profile" type="file" accept=".jpg,.jpeg,.png,.svg" placeholder="Profile" required />
+            <x-forms.file-input color="gray" label="Profile" name="profile" id="profile" type="file"
+                accept=".jpg,.jpeg,.png,.svg" placeholder="Profile" />
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">SVG, JPG or PNG. Max size of 800K.</p>
             <x-forms.input-error :messages="$errors->get('profile')" class="mt-2" />
             <div class="flex items-center gap-3 mt-4">

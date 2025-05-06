@@ -8,7 +8,8 @@
         <!-- Platform Textarea -->
         <div>
 
-            <x-forms.text-area color="gray" id="bio" name="bio" rows="5" required placeholder="E.g. Education reform, healthcare access..."></x-forms.text-area>
+            <x-forms.text-area color="gray" id="bio" name="bio" rows="5"
+                placeholder="E.g. Education reform, healthcare access..."></x-forms.text-area>
             <x-forms.input-error :messages="$errors->get('platform')" class="mt-2" />
         </div>
 
@@ -16,7 +17,8 @@
         <!-- Platform Image Upload -->
         <div>
             <x-forms.input-label value="Upload Image" />
-            <x-forms.file-input color="gray" label="Profile" name="profile" id="profile" type="file" accept=".jpg,.jpeg,.png,.svg" placeholder="Profile" required />
+            <x-forms.file-input color="gray" label="Profile" name="profile" id="profile" type="file"
+                accept=".jpg,.jpeg,.png,.svg" placeholder="Profile" />
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">SVG, JPG or PNG. Max size of 800K.</p>
             <x-forms.input-error :messages="$errors->get('platform_image')" class="mt-2" />
         </div>
