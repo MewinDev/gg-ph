@@ -13,7 +13,7 @@ class Position extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pos_name', 'election_type_id'];
+    protected $fillable = ['pos_code', 'pos_name', 'pos_max_vote'];
 
     /**
      * Get all of the candidate for the Position

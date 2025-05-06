@@ -14,7 +14,7 @@ class Candidate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'can_ballot_number', 'can_picture', 'can_firstname', 'can_lastname', 'can_middlename', 'can_nickname', 'can_sex',
+        'can_ballot_number', 'can_picture', 'can_firstname', 'can_lastname', 'can_middlename', 'can_nickname', 'can_sex', 'can_brithdate',
         'position_id', 'partylist_id','barangay_id'
     ];
 

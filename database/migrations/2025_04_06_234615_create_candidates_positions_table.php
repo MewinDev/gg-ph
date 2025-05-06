@@ -14,12 +14,12 @@ return new class extends Migration
 
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->string('pos_name');
             $table->enum('pos_code', [
                 'president',
                 'vice_president',
                 'senator',
             ]);
+            $table->string('pos_name');
             $table->integer('pos_max_vote')->default(1);
             $table->timestamps();
         });

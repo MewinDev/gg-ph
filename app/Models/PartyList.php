@@ -11,7 +11,7 @@ class PartyList extends Model
 {
     use HasFactory;
 
-    protected $fillabe = ['par_name'];
+    protected $fillabe = ['par_abbreviatation', 'par_name'];
 
     /**
      * Get all of the comments for the PartyList
