@@ -3,7 +3,7 @@
     <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Select position to the candidate.</p>
     <section class="mt-3 space-y-3">
         @foreach ($grouped as $typeName => $positions)
-            <div class="w-full text-sm font-semibold capitalize">{{ $typeName }}</div>
+            <div class="w-full text-sm font-semibold text-gray-900 dark:text-white capitalize">{{ $typeName }}</div>
             @foreach ($positions as $position)
                 <div class="flex items-center">
                     <input type="radio" id="{{ $position->id }}" name="position" value="{{ $position->id }}"
