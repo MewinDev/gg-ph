@@ -21,7 +21,7 @@ class ElectionTypeFactory extends Factory
         ];
     }
 
-    public function type(string $type): static 
+    public function type(string $type): static
     {
         return $this->state(fn (array $attributes) => [
             'type_name' => $type

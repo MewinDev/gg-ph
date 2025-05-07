@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('par_name');
             $table->timestamps();
         });
+
+        Schema::create('political_parties', function (Blueprint $table) {
+            $table->id();
+            $table->string('pol_abbreviatation');
+            $table->string('pol_name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,5 +32,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('partylists');
+        Schema::dropIfExists('political_parties');
     }
 };

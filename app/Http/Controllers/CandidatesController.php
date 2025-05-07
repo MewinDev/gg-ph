@@ -23,14 +23,13 @@ class CandidatesController extends Controller
 
     public function index($type) {
 
-        $candidates = $this->candidateService->getCandidateByType($type);
-        $groupedCandidates = $candidates->groupBy('position.pos_name');
+        $groupedCandidates = $this->candidateService->getCandidateByType($type)->paginate(10);
 
-        if (is_null($candidates)) {
+        if (is_null($groupedCandidates)) {
             abort(404);
         }
 
-        $firstCandidate = $candidates
+        $firstCandidate = $groupedCandidates
             ->first();
 
         [$positionName, $electionTypeName] = $this

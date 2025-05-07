@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Models\Barangay;
 use App\Models\PartyList;
+use App\Models\PoliticalParty;
 use App\Models\Position;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Candidate extends Model
@@ -15,7 +16,7 @@ class Candidate extends Model
 
     protected $fillable = [
         'can_ballot_number', 'can_picture', 'can_firstname', 'can_lastname', 'can_middlename', 'can_nickname', 'can_sex', 'can_brithdate',
-        'position_id', 'partylist_id','barangay_id'
+        'position_id', 'political_party_id'
     ];
 
     /**
@@ -33,19 +34,9 @@ class Candidate extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function partylist(): BelongsTo
+    public function politicalparty(): BelongsTo
     {
-        return $this->belongsTo(PartyList::class);
-    }
-
-    /**
-     * Get the barangay that owns the Candidate.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function barangay(): belongsTo
-    {
-        return $this->belongsTo(Barangay::class);
+        return $this->belongsTo(PoliticalParty::class);
     }
 
 }

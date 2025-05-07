@@ -20,11 +20,9 @@ class CandidateService
             return null;
         }
 
-        $candidates = Candidate::with(['position.electionType'])
-            ->whereHas('position.electionType', fn($query) => $query->where('type_name', $type))
-            ->get();
+        return Candidate::with(['position.electionType'])
+            ->whereHas('position.electionType', fn($query) => $query->where('type_name', $type));
 
-        return $candidates;
     }
 
     public function getCandidateTotalByType() {
